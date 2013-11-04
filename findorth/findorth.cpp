@@ -206,11 +206,10 @@ static void find_rot_pair(int r0, int r1)
     }
 }
 
-static void find_rot()
+static void find_rot(int r)
 {
-    double pi = 4.0 * atan(1.0);
-    double c2 = cos(2.0 * pi / 16.0);
-    double s2 = sin(2.0 * pi / 16.0);
+    double c2 = cos((double)r * pi / 16.0);
+    double s2 = sin((double)r * pi / 16.0);
 
     double s2_over_c2 = s2 / c2;
 
@@ -248,7 +247,7 @@ static void find_rot()
 int main()
 {
     printf("rot2:\n");
-    find_rot();
+    find_rot(2);
 
     printf("\nrot1/3 pair:\n");
     find_rot_pair(1, 3);
